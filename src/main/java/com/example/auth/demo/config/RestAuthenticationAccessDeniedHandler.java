@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
+ * 权限不足处理类
  * @author: JoeTao
  * createAt: 2018/9/21
  */

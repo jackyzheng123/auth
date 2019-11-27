@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * token校验
+ * token过滤器来验证token有效性
  * @author: JoeTao
  * createAt: 2018/9/14
  */

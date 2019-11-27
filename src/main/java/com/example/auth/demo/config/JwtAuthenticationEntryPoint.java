@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 
 /**
+ * 认证失败处理类
  * @author: JoeTao
  * createAt: 2018/9/20
  */
