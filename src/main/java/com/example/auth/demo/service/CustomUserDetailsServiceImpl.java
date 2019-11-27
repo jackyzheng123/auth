@@ -3,6 +3,7 @@ package com.example.auth.demo.service;
 import com.example.auth.demo.domain.auth.Role;
 import com.example.auth.demo.domain.auth.UserDetail;
 import com.example.auth.demo.mapper.AuthMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
@@ -14,8 +15,10 @@ import org.springframework.stereotype.Component;
  */
 @Component(value="CustomUserDetailsService")
 public class CustomUserDetailsServiceImpl implements UserDetailsService {
+
     private final AuthMapper authMapper;
 
+    @Autowired
     public CustomUserDetailsServiceImpl(AuthMapper authMapper) {
         this.authMapper = authMapper;
     }

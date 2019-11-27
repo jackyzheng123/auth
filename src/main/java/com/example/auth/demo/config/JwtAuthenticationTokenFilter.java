@@ -34,13 +34,13 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
         String auth_token = request.getHeader(this.token_header);
-        final String auth_token_start = "Bearer ";
-        if (StringUtils.isNotEmpty(auth_token) && auth_token.startsWith(auth_token_start)) {
-            auth_token = auth_token.substring(auth_token_start.length());
-        } else {
-            // 不按规范,不允许通过验证
-            auth_token = null;
-        }
+        // final String auth_token_start = "Bearer "; // "Bearer " + token
+//        if (StringUtils.isNotEmpty(auth_token) && auth_token.startsWith(auth_token_start)) {
+//            auth_token = auth_token.substring(auth_token_start.length());
+//        } else {
+//            // 不按规范,不允许通过验证
+//            auth_token = null;
+//        }
 
         String username = jwtUtils.getUsernameFromToken(auth_token);
 

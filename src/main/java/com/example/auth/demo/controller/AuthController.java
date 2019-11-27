@@ -28,6 +28,7 @@ import javax.validation.Valid;
 @Api(description = "登陆注册及刷新token")
 @RequestMapping("/api/v1")
 public class AuthController {
+
     @Value("${jwt.header}")
     private String tokenHeader;
 
@@ -79,10 +80,11 @@ public class AuthController {
         UserDetail userDetail = new UserDetail(user.getName(), user.getPassword(), Role.builder().id(1l).build());
         return ResultJson.ok(authService.register(userDetail));
     }
-//    @GetMapping(value = "refresh")
+
+//    @GetMapping(value = "/refresh")
 //    @ApiOperation(value = "刷新token")
-//    public ResultJson refreshAndGetAuthenticationToken(
-//            HttpServletRequest request){
+//    @ApiImplicitParams({@ApiImplicitParam(name = "Authorization", value = "Authorization token", required = true, dataType = "string", paramType = "header")})
+//    public ResultJson refreshAndGetAuthenticationToken(HttpServletRequest request){
 //        String token = request.getHeader(tokenHeader);
 //        ResponseUserToken response = authService.refresh(token);
 //        if(response == null) {

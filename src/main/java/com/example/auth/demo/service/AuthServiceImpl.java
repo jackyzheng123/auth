@@ -80,14 +80,15 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void logout(String token) {
-        token = token.substring(tokenHead.length());
+        // token = token.substring(tokenHead.length()); // "Bearer " + token
         String userName = jwtTokenUtil.getUsernameFromToken(token);
         jwtTokenUtil.deleteToken(userName);
     }
 
     @Override
     public ResponseUserToken refresh(String oldToken) {
-        String token = oldToken.substring(tokenHead.length());
+        // String token = oldToken.substring(tokenHead.length()); // "Bearer " + token
+        String token = oldToken;
         String username = jwtTokenUtil.getUsernameFromToken(token);
         UserDetail userDetail = (UserDetail) userDetailsService.loadUserByUsername(username);
         if (jwtTokenUtil.canTokenBeRefreshed(token, userDetail.getLastPasswordResetDate())){
@@ -99,7 +100,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public UserDetail getUserByToken(String token) {
-        token = token.substring(tokenHead.length());
+        // token = token.substring(tokenHead.length()); // "Bearer " + token
         return jwtTokenUtil.getUserFromToken(token);
     }
 
